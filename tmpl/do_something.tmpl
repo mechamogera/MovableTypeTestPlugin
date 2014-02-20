@@ -1,0 +1,31 @@
+<mt:setvarblock name="html_head" append="1">
+<script type="text/javascript">
+/* <![CDATA[ */
+function alarm() {
+   ret = confirm("処理実行");
+   if (ret == true) {
+     location.href = "<mt:var name="script_url">?__mode=do_something" + ("<mt:var name="blog_id">" ? "&blog_id=<mt:var name="blog_id">" : "");
+   } else {
+   }
+}
+/* ]]> */
+</script>
+</mt:setvarblock>
+
+<mt:setvar name="page_title" value="<__trans phrase="Test Settings">">
+<$mt:setvar name="position_actions_bottom" value="1"$>
+
+<mt:include name="include/header.tmpl" id="header_include">
+
+message : <mt:var name="message" encode_html="1"><br />
+<form id="test_form" action="<mt:var name="script_url">?__mode=do_something">
+<button type="submit" name="__mode" value="do_something">テスト1</button>
+</form>
+
+<form id="test_form" action="<mt:var name="script_url">?__mode=do_something">
+<input type="button" value="テスト2" onclick="alarm()">
+</form>
+
+<mt:include name="include/actions_bar.tmpl" bar_position="bottom" hide_pager="1" settings_bar="1">
+
+<mt:include name="include/footer.tmpl">

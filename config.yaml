@@ -1,0 +1,30 @@
+id: MovableTypeTestPlugin
+key: MovableTypeTestPlugin
+name: <__trans phrase="Test Plugin">
+version: 1.0
+description: <__trans phrase="_PLUGIN_DESCRIPTION">
+author_name: <__trans phrase="_PLUGIN_AUTHOR">
+author_link: http://www.example.com/about/
+doc_link: http://www.example.com/docs/
+l10n_class: MovableTypeTestPlugin::L10N
+
+applications:
+    cms:
+        menus:
+            new_menu:
+                label: Test Menu
+                order: 10000
+
+            new_menu:test:
+                label: Test Action
+                mode: window_test
+                order: 100
+                view:
+                    - system
+                    - website
+                    - blog
+                    - user
+
+        methods:
+          window_test: $MovableTypeTestPlugin::MovableTypeTestPlugin::WindowTest::hndl_window_test
+          do_something: $MovableTypeTestPluginn::MovableTypeTestPlugin::DoSomething::hndl_do_something
